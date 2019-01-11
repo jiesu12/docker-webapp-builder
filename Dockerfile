@@ -11,13 +11,6 @@ RUN apt-get update &&\
   apt-get -y autoremove && apt-get -y clean && \
   rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
-# RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> /etc/profile.d/maven.sh &&\
-#  echo 'export M2_HOME=/opt/maven' >> /etc/profile.d/maven.sh &&\
-#  echo 'export MAVEN_HOME=/opt/maven' >> /etc/profile.d/maven.sh &&\
-#  echo 'export PATH=${M2_HOME}/bin:${PATH}' >> /etc/profile.d/maven.sh &&\
-#  chmod +x /etc/profile.d/maven.sh &&\
-#  . /etc/profile.d/maven.sh
-
 RUN ln -svT "/usr/lib/jvm/java-8-openjdk-$(dpkg --print-architecture)" /opt/java-home
 
 ENV JAVA_HOME=/opt/java-home
