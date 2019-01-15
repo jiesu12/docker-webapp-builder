@@ -24,3 +24,9 @@ ENV JAVA_HOME=/opt/java-home
 ENV M2_HOME=/opt/maven
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=${M2_HOME}/bin:${PATH}
+
+# node-sass C library for arm is not availabe for download. During npm install, the library will be built locally, which takes really long time.
+# So built the library first, then make it available locally via env variable SASS_BINARY_PATH in the build container.
+RUN mkdir /node-sass
+COPY node-sass/linux-arm-57-binding.node /node-sass
+
