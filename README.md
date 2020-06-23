@@ -1,3 +1,3 @@
 ```
-docker build -t jiesu/webapp-builder:j8-m3-n8-$(dpkg --print-architecture) .
+docker build -t jiesu/webapp-builder:j8-m3-n14-$(dpkg --print-architecture) .
 ```
